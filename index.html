@@ -3,85 +3,84 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Facebor</title>
+    <title>Facebor — Настройки</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💬</text></svg>">
     <style>
-        :root{--b:#0e1621;--b2:#17212b;--b3:#242f3d;--a:#2ea6ff;--t:#fff;--t2:#8d969b;--g:#4caf50;--br:rgba(255,255,255,.08)}
+        :root{--b:#0e1621;--b2:#17212b;--b3:#242f3d;--a:#2ea6ff;--t:#fff;--t2:#8d969b;--g:#4caf50;--r:#e53935;--br:rgba(255,255,255,.08)}
         *{margin:0;padding:0;box-sizing:border-box}
-        body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--b);color:var(--t);height:100vh;overflow:hidden;-webkit-font-smoothing:antialiased;-webkit-tap-highlight-color:transparent;contain:strict}
-        #app{height:100vh;display:flex;contain:content}
+        body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--b);color:var(--t);height:100vh;overflow:hidden}
+        #app{height:100vh;display:flex}
         #loader{position:fixed;top:0;left:0;width:100%;height:100%;background:var(--b);z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;transition:opacity .2s;color:var(--t2)}
         #loader.hidden{opacity:0;pointer-events:none}
         #loader i{width:40px;height:40px;border:3px solid var(--b3);border-top-color:var(--a);border-radius:50%;animation:s .5s linear infinite;display:block}
         @keyframes s{to{transform:rotate(360deg)}}
-        .sidebar{width:380px;min-width:380px;background:var(--b2);border-right:1px solid var(--br);display:flex;flex-direction:column;transition:transform .2s cubic-bezier(.4,0,.2,1);will-change:transform;contain:strict}
+        .sidebar{width:380px;min-width:380px;background:var(--b2);border-right:1px solid var(--br);display:flex;flex-direction:column;transition:transform .2s}
         .sb-h{padding:12px 16px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--br);height:56px}
         .sb-h span{font-size:19px;font-weight:600}
         .sb-a{display:flex;gap:4px}
         .ib{width:36px;height:36px;border-radius:50%;border:0;background:0;color:var(--t2);font-size:17px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .1s}
         .ib:hover{background:var(--b3);color:var(--t)}
         .sw{padding:8px 12px}
-        .sw input{width:100%;padding:9px 12px;background:var(--b);border:1px solid var(--br);border-radius:20px;color:var(--t);font-size:13px;outline:0;transition:border .15s}
+        .sw input{width:100%;padding:9px 12px;background:var(--b);border:1px solid var(--br);border-radius:20px;color:var(--t);font-size:13px;outline:0}
         .sw input:focus{border-color:var(--a)}
-        .cl{flex:1;overflow-y:auto;contain:content}
-        .ci{display:flex;align-items:center;padding:10px 12px;cursor:pointer;gap:10px;transition:background .1s;height:68px}
-        .ci:hover{background:var(--b3)}
-        .ci.active{background:rgba(46,166,255,.12);border-left:3px solid var(--a)}
-        .ca{width:46px;height:46px;border-radius:50%;background:linear-gradient(135deg,#2ea6ff,#1a73e8);display:flex;align-items:center;justify-content:center;font-weight:600;font-size:19px;flex-shrink:0}
-        .cin{flex:1;min-width:0}
-        .cn{font-weight:500;font-size:14px;margin-bottom:2px}
-        .clm{color:var(--t2);font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-        .cmt{text-align:right;flex-shrink:0}
-        .ct{color:var(--t2);font-size:11px}
-        .ub{padding:8px 12px;background:var(--b);border-top:1px solid var(--br);display:flex;align-items:center;gap:8px;height:56px}
-        .ua{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,#2ea6ff,#1a73e8);display:flex;align-items:center;justify-content:center;font-weight:600;font-size:15px}
-        .ui{flex:1}
-        .un{font-weight:500;font-size:13px}
-        .uu{color:var(--t2);font-size:11px}
-        .mc{flex:1;display:flex;flex-direction:column;background:var(--b);contain:content}
+        .cl{flex:1;overflow-y:auto}
+        .ci{display:flex;align-items:center;padding:10px 12px;cursor:pointer;gap:10px;transition:background .1s}
+        .ci:hover{background:var(--b3)}.ci.active{background:rgba(46,166,255,.12);border-left:3px solid var(--a)}
+        .ca{width:46px;height:46px;border-radius:50%;background:linear-gradient(135deg,#2ea6ff,#1a73e8);display:flex;align-items:center;justify-content:center;font-weight:600;font-size:19px;flex-shrink:0;overflow:hidden}
+        .ca img{width:100%;height:100%;object-fit:cover}
+        .cin{flex:1;min-width:0}.cn{font-weight:500;font-size:14px}.clm{color:var(--t2);font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+        .cmt{text-align:right}.ct{color:var(--t2);font-size:11px}
+        .ub{padding:8px 12px;background:var(--b);border-top:1px solid var(--br);display:flex;align-items:center;gap:8px;cursor:pointer;transition:background .1s}
+        .ub:hover{background:var(--b3)}
+        .ua{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,#2ea6ff,#1a73e8);display:flex;align-items:center;justify-content:center;font-weight:600;font-size:15px;overflow:hidden}
+        .ua img{width:100%;height:100%;object-fit:cover}
+        .ui{flex:1}.un{font-weight:500;font-size:13px}.uu{color:var(--t2);font-size:11px}
+        .mc{flex:1;display:flex;flex-direction:column;background:var(--b)}
         .ch{padding:10px 16px;background:var(--b2);border-bottom:1px solid var(--br);display:flex;align-items:center;gap:10px;height:56px}
         .bb{display:none;background:0;border:0;color:var(--t2);font-size:20px;cursor:pointer}
-        .cinf{flex:1}
-        .cnm{font-weight:600;font-size:15px}
-        .cst{color:var(--g);font-size:12px}
-        .ma{flex:1;overflow-y:auto;padding:12px;display:flex;flex-direction:column;gap:4px;contain:content}
-        .em{text-align:center;margin:auto;color:var(--t2)}
-        .em i{font-size:64px;display:block;margin-bottom:8px}
-        .em h3{font-size:18px;margin-bottom:4px;color:var(--t)}
+        .cinf{flex:1}.cnm{font-weight:600;font-size:15px}.cst{color:var(--g);font-size:12px}
+        .ma{flex:1;overflow-y:auto;padding:12px;display:flex;flex-direction:column;gap:4px}
+        .em{text-align:center;margin:auto;color:var(--t2)}.em i{font-size:64px;display:block;margin-bottom:8px}.em h3{font-size:18px;margin-bottom:4px;color:var(--t)}
         .msg{display:flex;max-width:70%;animation:m .15s ease}
         @keyframes m{from{opacity:0;transform:translateY(6px)}}
-        .msg.sent{align-self:flex-end}
-        .msg.rec{align-self:flex-start}
+        .msg.sent{align-self:flex-end}.msg.rec{align-self:flex-start}
         .mb{padding:8px 12px;border-radius:14px;line-height:1.4;word-wrap:break-word;font-size:14px}
         .msg.sent .mb{background:var(--a);color:#fff;border-bottom-right-radius:3px}
         .msg.rec .mb{background:var(--b3);border-bottom-left-radius:3px}
         .mt{font-size:10px;opacity:.65;margin-top:2px;text-align:right}
-        .ia{padding:8px 12px;background:var(--b2);border-top:1px solid var(--br);display:flex;align-items:center;gap:6px;height:56px}
-        .ia input{flex:1;padding:10px 14px;background:var(--b);border:1px solid var(--br);border-radius:22px;color:var(--t);font-size:14px;outline:0;transition:border .15s}
+        .ia{padding:8px 12px;background:var(--b2);border-top:1px solid var(--br);display:flex;align-items:center;gap:6px}
+        .ia input{flex:1;padding:10px 14px;background:var(--b);border:1px solid var(--br);border-radius:22px;color:var(--t);font-size:14px;outline:0}
         .ia input:focus{border-color:var(--a)}
-        .sb-btn{width:40px;height:40px;border-radius:50%;background:var(--a);border:0;color:#fff;font-size:18px;cursor:pointer;flex-shrink:0;transition:transform .1s}
-        .sb-btn:hover{transform:scale(1.05)}
-        .sb-btn:active{transform:scale(.95)}
-        .modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.5);z-index:1000;justify-content:center;align-items:center;backdrop-filter:blur(2px);-webkit-backdrop-filter:blur(2px)}
+        .sb-btn{width:40px;height:40px;border-radius:50%;background:var(--a);border:0;color:#fff;font-size:18px;cursor:pointer}
+        .modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.5);z-index:1000;justify-content:center;align-items:center;backdrop-filter:blur(2px)}
         .modal.on{display:flex}
-        .mbox{background:var(--b2);border-radius:14px;padding:22px;width:92%;max-width:380px;animation:mi .2s ease}
+        .mbox{background:var(--b2);border-radius:14px;padding:22px;width:92%;max-width:400px;animation:mi .2s ease;max-height:90vh;overflow-y:auto}
         @keyframes mi{from{opacity:0;transform:scale(.95) translateY(10px)}}
         .mbox h2{font-size:18px;margin-bottom:16px;display:flex;justify-content:space-between;align-items:center}
-        .mbox h2 button{background:0;border:0;color:var(--t2);font-size:22px;cursor:pointer;padding:0 4px}
+        .mbox h2 button{background:0;border:0;color:var(--t2);font-size:22px;cursor:pointer}
         .fg{margin-bottom:12px}
         .fg label{display:block;color:var(--t2);font-size:11px;margin-bottom:3px;text-transform:uppercase;letter-spacing:.5px}
-        .fg input{width:100%;padding:10px 12px;background:var(--b);border:1px solid var(--br);border-radius:10px;color:var(--t);font-size:14px;outline:0;transition:border .15s}
+        .fg input,.fg select{width:100%;padding:10px 12px;background:var(--b);border:1px solid var(--br);border-radius:10px;color:var(--t);font-size:14px;outline:0}
         .fg input:focus{border-color:var(--a)}
-        .btn{width:100%;padding:12px;border:0;border-radius:10px;font-size:15px;font-weight:600;cursor:pointer;transition:background .15s}
-        .btn-a{background:var(--a);color:#fff}
-        .btn-a:hover{background:#3cb4ff}
+        .btn{width:100%;padding:12px;border:0;border-radius:10px;font-size:15px;font-weight:600;cursor:pointer;margin-bottom:6px}
+        .btn-a{background:var(--a);color:#fff}.btn-a:hover{background:#3cb4ff}
         .btn-o{background:0;color:var(--a);border:2px solid var(--a)}
-        .err{color:#e53935;font-size:12px;margin-top:4px;display:none}
+        .btn-r{background:0;color:var(--r);border:2px solid var(--r)}
+        .err{color:var(--r);font-size:12px;margin-top:4px;display:none}
         .ok{color:var(--g);font-size:12px;margin-top:4px;display:none}
         .swt{text-align:center;margin-top:14px;color:var(--t2);font-size:13px}
         .swt a{color:var(--a);cursor:pointer}
-        ::-webkit-scrollbar{width:4px}
-        ::-webkit-scrollbar-thumb{background:var(--b3);border-radius:8px}
+        .settings-item{display:flex;align-items:center;justify-content:space-between;padding:14px 0;border-bottom:1px solid var(--br);cursor:pointer;transition:background .1s}
+        .settings-item:hover{opacity:.8}
+        .settings-item .si-left{display:flex;align-items:center;gap:10px}
+        .settings-item .si-icon{font-size:20px;width:30px;text-align:center}
+        .settings-item .si-text{font-size:14px}.settings-item .si-sub{color:var(--t2);font-size:12px}
+        .settings-item .si-arrow{color:var(--t2)}
+        .avatar-upload{width:80px;height:80px;border-radius:50%;background:var(--b3);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;cursor:pointer;overflow:hidden;position:relative;font-size:36px;font-weight:600;transition:opacity .2s}
+        .avatar-upload:hover{opacity:.8}
+        .avatar-upload img{width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0}
+        .avatar-upload input{display:none}
+        ::-webkit-scrollbar{width:4px}::-webkit-scrollbar-thumb{background:var(--b3);border-radius:8px}
         @media(max-width:768px){.sidebar{position:fixed;left:0;top:0;height:100%;z-index:50;transform:translateX(-100%)}.sidebar.open{transform:translateX(0)}.bb{display:block}.mc{width:100%}}
     </style>
 </head>
@@ -93,58 +92,120 @@
         let D={users:[],chats:[],messages:{},cu:null,ac:null};
         const L=localStorage;
         function load(){
-            const d=L.getItem('fb3');
+            const d=L.getItem('fb_full');
             if(d)try{D=JSON.parse(d)}catch(e){}
             if(!D.users.length){
-                D.users=[{id:1,name:'Анна',username:'anna',email:'anna@facebor.com',password:'123456',online:!0},{id:2,name:'Петр',username:'petr',email:'petr@facebor.com',password:'123456',online:!1},{id:3,name:'Мария',username:'maria',email:'maria@facebor.com',password:'123456',online:!0}];
+                D.users=[{id:1,name:'Анна',username:'anna',email:'anna@facebor.com',phone:'+79001234567',password:'123456',online:!0,avatar:'',bio:'Привет, я в Facebor!',theme:'dark'},{id:2,name:'Петр',username:'petr',email:'petr@facebor.com',phone:'+79007654321',password:'123456',online:!1,avatar:'',bio:'','theme':'dark'},{id:3,name:'Мария',username:'maria',email:'maria@facebor.com',phone:'+79005551234',password:'123456',online:!0,avatar:'',bio:'Люблю общаться','theme':'dark'}];
                 save();
             }
         }
-        function save(){L.setItem('fb3',JSON.stringify(D))}
+        function save(){L.setItem('fb_full',JSON.stringify(D))}
         function ft(t){const d=new Date(t),n=new Date();if(d.toDateString()===n.toDateString())return d.toLocaleTimeString('ru',{hour:'2-digit',minute:'2-digit'});return d.toLocaleDateString('ru',{day:'numeric',month:'short'})}
         function esc(s){const d=document.createElement('div');d.textContent=s;return d.innerHTML}
-
         function render(){document.getElementById('loader').classList.add('hidden');const a=document.getElementById('app');D.cu?renderApp(a):renderAuth(a)}
 
         function renderAuth(a){
-            a.innerHTML='<div style="display:flex;align-items:center;justify-content:center;width:100%;height:100vh;background:var(--b);overflow-y:auto"><div style="background:var(--b2);border-radius:16px;padding:28px;width:92%;max-width:380px;text-align:center;margin:16px"><div style="font-size:48px;margin-bottom:8px">💬</div><h1 style="font-size:24px;margin-bottom:2px">Facebor</h1><p style="color:var(--t2);margin-bottom:16px;font-size:13px">Общайтесь свободно</p><div id="lb"><div class="fg"><label>Email или Username</label><input id="lu" placeholder="email@example.com" autocomplete="email"></div><div class="fg"><label>Пароль</label><input id="lp" type="password" placeholder="Введите пароль"></div><div class="err" id="le"></div><button class="btn btn-a" onclick="login()" style="margin-bottom:8px">Войти</button><p style="margin-bottom:6px"><a onclick="fpModal()" style="color:var(--a);cursor:pointer;font-size:12px">Забыли пароль?</a></p><p class="swt">Нет аккаунта? <a onclick="ta()">Регистрация</a></p><p style="color:var(--t2);font-size:10px;margin-top:10px">Демо: anna@facebor.com / 123456</p></div><div id="rb" style="display:none"><div class="fg"><label>Имя</label><input id="rn" placeholder="Ваше имя"></div><div class="fg"><label>Username</label><input id="ru" placeholder="Придумайте username"></div><div class="fg"><label>Email</label><input id="re" type="email" placeholder="your@gmail.com"></div><div class="fg"><label>Пароль</label><input id="rp" type="password" placeholder="Минимум 6 символов"></div><div class="fg"><label>Подтвердите пароль</label><input id="rp2" type="password" placeholder="Повторите пароль"></div><div class="err" id="rerr"></div><button class="btn btn-a" onclick="register()" style="margin-bottom:8px">Создать аккаунт</button><p class="swt">Есть аккаунт? <a onclick="ta()">Войти</a></p></div></div></div>';
+            a.innerHTML='<div style="display:flex;align-items:center;justify-content:center;width:100%;height:100vh;background:var(--b);overflow-y:auto"><div style="background:var(--b2);border-radius:16px;padding:28px;width:92%;max-width:400px;text-align:center;margin:16px"><div style="font-size:48px;margin-bottom:8px">💬</div><h1 style="font-size:24px;margin-bottom:2px">Facebor</h1><p style="color:var(--t2);margin-bottom:16px;font-size:13px">Общайтесь свободно</p><div id="lb"><div class="fg"><label>Email или Username</label><input id="lu" placeholder="email@example.com"></div><div class="fg"><label>Пароль</label><input id="lp" type="password" placeholder="Введите пароль"></div><div class="err" id="le"></div><button class="btn btn-a" onclick="login()" style="margin-bottom:8px">Войти</button><p style="margin-bottom:6px"><a onclick="fpModal()" style="color:var(--a);cursor:pointer;font-size:12px">Забыли пароль?</a></p><p class="swt">Нет аккаунта? <a onclick="ta()">Регистрация</a></p><p style="color:var(--t2);font-size:10px;margin-top:10px">Демо: anna / 123456</p></div><div id="rb" style="display:none"><div class="fg"><label>Имя</label><input id="rn" placeholder="Ваше имя"></div><div class="fg"><label>Username</label><input id="ru" placeholder="Придумайте username"></div><div class="fg"><label>Email</label><input id="re" type="email" placeholder="your@gmail.com"></div><div class="fg"><label>Номер телефона</label><input id="rph" type="tel" placeholder="+79001234567"></div><div class="fg"><label>Пароль</label><input id="rp" type="password" placeholder="Минимум 6 символов"></div><div class="err" id="rerr"></div><button class="btn btn-a" onclick="register()" style="margin-bottom:8px">Создать аккаунт</button><p class="swt">Есть аккаунт? <a onclick="ta()">Войти</a></p></div></div></div>';
         }
         function ta(){const l=document.getElementById('lb'),r=document.getElementById('rb');l.style.display=l.style.display==='none'?'block':'none';r.style.display=r.style.display==='none'?'block':'none'}
         function login(){const u=document.getElementById('lu').value.trim().toLowerCase(),p=document.getElementById('lp').value,e=document.getElementById('le');e.style.display='none';const user=D.users.find(x=>(x.username===u||x.email===u)&&x.password===p);if(user){D.cu=user;save();render()}else{e.textContent='Неверный логин или пароль';e.style.display='block'}}
-        function register(){const n=document.getElementById('rn').value.trim(),u=document.getElementById('ru').value.trim().toLowerCase(),em=document.getElementById('re').value.trim().toLowerCase(),p=document.getElementById('rp').value,p2=document.getElementById('rp2').value,e=document.getElementById('rerr');e.style.display='none';if(!n||!u||!em||!p){e.textContent='Заполните все поля';e.style.display='block';return}if(u.length<3){e.textContent='Username минимум 3 символа';e.style.display='block';return}if(!em.includes('@')||!em.includes('.')){e.textContent='Некорректный email';e.style.display='block';return}if(p.length<6){e.textContent='Пароль минимум 6 символов';e.style.display='block';return}if(p!==p2){e.textContent='Пароли не совпадают';e.style.display='block';return}if(D.users.find(x=>x.username===u)){e.textContent='Username занят';e.style.display='block';return}if(D.users.find(x=>x.email===em)){e.textContent='Email уже используется';e.style.display='block';return}const user={id:Date.now(),name:n,username:u,email:em,password:p,online:!0};D.users.push(user);D.cu=user;save();render()}
-        function fpModal(){const m=document.createElement('div');m.className='modal on';m.id='fpm';m.innerHTML='<div class="mbox"><h2>Восстановление пароля <button onclick="cm(\'fpm\')">✕</button></h2><p style="color:var(--t2);font-size:12px;margin-bottom:12px">Введите email, указанный при регистрации</p><div class="fg"><label>Email</label><input id="fpe" type="email" placeholder="your@gmail.com"></div><div class="err" id="fperr"></div><div class="ok" id="fpok"></div><button class="btn btn-a" onclick="rpReset()">Восстановить</button></div>';document.body.appendChild(m);m.onclick=e=>{if(e.target===m)cm('fpm')}}
-        function rpReset(){const em=document.getElementById('fpe').value.trim().toLowerCase(),err=document.getElementById('fperr'),ok=document.getElementById('fpok');err.style.display='none';ok.style.display='none';const user=D.users.find(x=>x.email===em);if(!user){err.textContent='Email не найден';err.style.display='block';return}ok.innerHTML='✅ Пароль: <b>'+user.password+'</b><br><small style="color:var(--t2)">Отправлен на '+em+'</small>';ok.style.display='block'}
-        function profModal(){const m=document.createElement('div');m.className='modal on';m.id='prm';const u=D.cu;m.innerHTML='<div class="mbox"><h2>Профиль <button onclick="cm(\'prm\')">✕</button></h2><div style="text-align:center;margin-bottom:12px"><div class="ca" style="width:60px;height:60px;font-size:26px;margin:0 auto">'+u.name[0].toUpperCase()+'</div></div><div class="fg"><label>Имя</label><input value="'+u.name+'" readonly></div><div class="fg"><label>Username</label><input value="@'+u.username+'" readonly></div><div class="fg"><label>Email</label><input value="'+u.email+'" readonly></div><button class="btn btn-o" onclick="cm(\'prm\')">Закрыть</button></div>';document.body.appendChild(m);m.onclick=e=>{if(e.target===m)cm('prm')}}
+        function register(){const n=document.getElementById('rn').value.trim(),u=document.getElementById('ru').value.trim().toLowerCase(),em=document.getElementById('re').value.trim().toLowerCase(),ph=document.getElementById('rph').value.trim(),p=document.getElementById('rp').value,e=document.getElementById('rerr');e.style.display='none';if(!n||!u||!em||!p){e.textContent='Заполните обязательные поля';e.style.display='block';return}if(u.length<3){e.textContent='Username минимум 3 символа';e.style.display='block';return}if(!em.includes('@')||!em.includes('.')){e.textContent='Некорректный email';e.style.display='block';return}if(p.length<6){e.textContent='Пароль минимум 6 символов';e.style.display='block';return}if(D.users.find(x=>x.username===u)){e.textContent='Username занят';e.style.display='block';return}if(D.users.find(x=>x.email===em)){e.textContent='Email уже используется';e.style.display='block';return}const user={id:Date.now(),name:n,username:u,email:em,phone:ph||'',password:p,online:!0,avatar:'',bio:'',theme:'dark'};D.users.push(user);D.cu=user;save();render()}
+        function fpModal(){const m=document.createElement('div');m.className='modal on';m.id='fpm';m.innerHTML='<div class="mbox"><h2>Восстановление пароля <button onclick="cm(\'fpm\')">✕</button></h2><p style="color:var(--t2);font-size:12px;margin-bottom:12px">Введите email или телефон</p><div class="fg"><label>Email или телефон</label><input id="fpe" placeholder="email или +7900..."></div><div class="err" id="fperr"></div><div class="ok" id="fpok"></div><button class="btn btn-a" onclick="rpReset()">Восстановить</button></div>';document.body.appendChild(m);m.onclick=e=>{if(e.target===m)cm('fpm')}}
+        function rpReset(){const q=document.getElementById('fpe').value.trim().toLowerCase(),err=document.getElementById('fperr'),ok=document.getElementById('fpok');err.style.display='none';ok.style.display='none';const user=D.users.find(x=>x.email===q||x.phone===q);if(!user){err.textContent='Пользователь не найден';err.style.display='block';return}ok.innerHTML='✅ Пароль: <b>'+user.password+'</b><br><small style="color:var(--t2)">Отправлен на '+user.email+'</small>';ok.style.display='block'}
 
         function renderApp(a){
-            a.innerHTML='<div class="sidebar" id="sb"><div class="sb-h"><span>Facebor</span><div class="sb-a"><button class="ib" onclick="ncModal()">✏️</button><button class="ib" onclick="profModal()">👤</button><button class="ib" onclick="logout()">🚪</button></div></div><div class="sw"><input type="text" placeholder="🔍 Поиск" oninput="fc(this.value)"></div><div class="cl" id="cl"></div><div class="ub"><div class="ua">'+D.cu.name[0].toUpperCase()+'</div><div class="ui"><div class="un">'+D.cu.name+'</div><div class="uu">@'+D.cu.username+'</div></div></div></div><div class="mc" id="mc">'+rm()+'</div>';
+            a.innerHTML='<div class="sidebar" id="sb"><div class="sb-h"><span>Facebor</span><div class="sb-a"><button class="ib" onclick="ncModal()">✏️</button><button class="ib" onclick="showSettings()">⚙️</button><button class="ib" onclick="logout()">🚪</button></div></div><div class="sw"><input type="text" placeholder="🔍 Поиск" oninput="fc(this.value)"></div><div class="cl" id="cl"></div><div class="ub" onclick="showProfile()"><div class="ua" id="ubAv">'+getAv(D.cu,'34px')+'</div><div class="ui"><div class="un">'+D.cu.name+'</div><div class="uu">@'+D.cu.username+'</div></div></div></div><div class="mc" id="mc">'+rm()+'</div>';
             uc();bi();
         }
 
+        function getAv(u,size){if(u.avatar)return '<img src="'+u.avatar+'" style="width:100%;height:100%;object-fit:cover;border-radius:50%">';return u.name[0].toUpperCase()}
+
         function rm(){
             if(!D.ac)return '<div class="ch"><div class="cinf"><div class="cnm">Facebor</div><div class="cst">Выберите чат</div></div></div><div class="ma"><div class="em"><i>💬</i><h3>Добро пожаловать!</h3><p>Выберите чат или создайте новый</p></div></div>';
-            const chat=D.chats.find(c=>c.id===D.ac);
-            if(!chat)return '';
-            const oId=chat.participants.find(id=>id!==D.cu.id);
-            const o=D.users.find(u=>u.id===oId);
+            const chat=D.chats.find(c=>c.id===D.ac);if(!chat)return '';
+            const oId=chat.participants.find(id=>id!==D.cu.id);const o=D.users.find(u=>u.id===oId);
             const msgs=D.messages[D.ac]||[];
-            return '<div class="ch"><button class="bb" onclick="cc()">←</button><div class="ca" style="width:38px;height:38px;font-size:16px">'+o.name[0]+'</div><div class="cinf"><div class="cnm">'+o.name+'</div><div class="cst">'+(o.online?'● online':'○ был недавно')+'</div></div></div><div class="ma" id="mc2">'+msgs.map(m=>{const s=m.senderId===D.cu.id;return '<div class="msg '+(s?'sent':'rec')+'"><div class="mb">'+esc(m.text)+'<div class="mt">'+ft(m.time)+'</div></div></div>'}).join('')+'</div><div class="ia"><input type="text" id="mi" placeholder="Сообщение..."><button class="sb-btn" onclick="sm()">➤</button></div>';
+            return '<div class="ch"><button class="bb" onclick="cc()">←</button><div class="ca" style="width:38px;height:38px;font-size:16px">'+getAv(o,'38px')+'</div><div class="cinf"><div class="cnm">'+o.name+'</div><div class="cst">'+(o.online?'● online':'○ был недавно')+'</div></div></div><div class="ma" id="mc2">'+msgs.map(m=>{const s=m.senderId===D.cu.id;return '<div class="msg '+(s?'sent':'rec')+'"><div class="mb">'+esc(m.text)+'<div class="mt">'+ft(m.time)+'</div></div></div>'}).join('')+'</div><div class="ia"><input type="text" id="mi" placeholder="Сообщение..."><button class="sb-btn" onclick="sm()">➤</button></div>';
         }
 
-        function uc(){const l=document.getElementById('cl');if(!l)return;const chats=D.chats.filter(c=>c.participants.includes(D.cu.id));l.innerHTML=chats.map(c=>{const oId=c.participants.find(id=>id!==D.cu.id);const o=D.users.find(u=>u.id===oId);const ms=D.messages[c.id]||[],last=ms[ms.length-1];return '<div class="ci'+(D.ac===c.id?' active':'')+'" onclick="oc('+c.id+')"><div class="ca">'+o.name[0]+'</div><div class="cin"><div class="cn">'+o.name+'</div><div class="clm">'+(last?last.text:'Нет сообщений')+'</div></div><div class="cmt"><div class="ct">'+(last?ft(last.time):'')+'</div></div></div>'}).join('')}
+        function uc(){const l=document.getElementById('cl');if(!l)return;const chats=D.chats.filter(c=>c.participants.includes(D.cu.id));l.innerHTML=chats.map(c=>{const oId=c.participants.find(id=>id!==D.cu.id);const o=D.users.find(u=>u.id===oId);const ms=D.messages[c.id]||[],last=ms[ms.length-1];return '<div class="ci'+(D.ac===c.id?' active':'')+'" onclick="oc('+c.id+')"><div class="ca" style="font-size:16px">'+getAv(o,'46px')+'</div><div class="cin"><div class="cn">'+o.name+'</div><div class="clm">'+(last?last.text:'Нет сообщений')+'</div></div><div class="cmt"><div class="ct">'+(last?ft(last.time):'')+'</div></div></div>'}).join('')}
         function oc(id){D.ac=id;document.getElementById('mc').innerHTML=rm();uc();sd();bi();if(window.innerWidth<=768)document.getElementById('sb').classList.remove('open')}
         function cc(){D.ac=null;document.getElementById('mc').innerHTML=rm();uc()}
         function sm(){const inp=document.getElementById('mi');if(!inp||!D.ac)return;const text=inp.value.trim();if(!text)return;if(!D.messages[D.ac])D.messages[D.ac]=[];D.messages[D.ac].push({senderId:D.cu.id,text,time:new Date().toISOString()});save();inp.value='';document.getElementById('mc').innerHTML=rm();sd();bi();uc()}
-        function sd(){requestAnimationFrame(()=>{const c=document.getElementById('mc2');if(c)c.scrollTop=c.scrollHeight})}
+        function sd(){setTimeout(()=>{const c=document.getElementById('mc2');if(c)c.scrollTop=c.scrollHeight},50)}
         function bi(){const inp=document.getElementById('mi');if(inp){inp.focus();inp.onkeypress=e=>{if(e.key==='Enter')sm()}}}
         function fc(q){const items=document.querySelectorAll('.ci'),s=q.toLowerCase();items.forEach(i=>{i.style.display=i.querySelector('.cn').textContent.toLowerCase().includes(s)?'flex':'none'})}
-        function ncModal(){const m=document.createElement('div');m.className='modal on';m.id='ncm';m.innerHTML='<div class="mbox"><h2>Новый чат <button onclick="cm(\'ncm\')">✕</button></h2><div class="fg"><label>Username или Email</label><input id="ncu" placeholder="username или email@..."></div><div class="err" id="nce"></div><button class="btn btn-a" onclick="sc()">Начать чат</button><p style="color:var(--t2);font-size:10px;margin-top:8px;text-align:center">anna, petr, maria</p></div>';document.body.appendChild(m);m.onclick=e=>{if(e.target===m)cm('ncm')}}
-        function sc(){const q=document.getElementById('ncu').value.trim().toLowerCase(),o=D.users.find(x=>x.username===q||x.email===q),e=document.getElementById('nce');if(!o){e.textContent='Пользователь не найден';e.style.display='block';return}if(o.id===D.cu.id){e.textContent='Нельзя начать чат с собой';e.style.display='block';return}const ex=D.chats.find(c=>c.participants.includes(D.cu.id)&&c.participants.includes(o.id));if(ex){oc(ex.id);cm('ncm');return}const nc={id:Date.now(),participants:[D.cu.id,o.id]};D.chats.push(nc);D.messages[nc.id]=[];save();oc(nc.id);cm('ncm')}
+        function ncModal(){const m=document.createElement('div');m.className='modal on';m.id='ncm';m.innerHTML='<div class="mbox"><h2>Новый чат <button onclick="cm(\'ncm\')">✕</button></h2><div class="fg"><label>Username, Email или Телефон</label><input id="ncu" placeholder="username, email или +7900..."></div><div class="err" id="nce"></div><button class="btn btn-a" onclick="sc()">Начать чат</button><p style="color:var(--t2);font-size:10px;margin-top:8px;text-align:center">anna, petr, maria</p></div>';document.body.appendChild(m);m.onclick=e=>{if(e.target===m)cm('ncm')}}
+        function sc(){const q=document.getElementById('ncu').value.trim().toLowerCase(),o=D.users.find(x=>x.username===q||x.email===q||x.phone===q),e=document.getElementById('nce');if(!o){e.textContent='Пользователь не найден';e.style.display='block';return}if(o.id===D.cu.id){e.textContent='Это ваш аккаунт';e.style.display='block';return}const ex=D.chats.find(c=>c.participants.includes(D.cu.id)&&c.participants.includes(o.id));if(ex){oc(ex.id);cm('ncm');return}const nc={id:Date.now(),participants:[D.cu.id,o.id]};D.chats.push(nc);D.messages[nc.id]=[];save();oc(nc.id);cm('ncm')}
         function cm(id){const m=document.getElementById(id);if(m)m.remove()}
         function logout(){D.cu=null;D.ac=null;save();render()}
 
-        load();
-        requestAnimationFrame(()=>{requestAnimationFrame(()=>{render()})});
-    </script>
-</body>
-</html>
+        // ПРОФИЛЬ
+        function showProfile(){
+            const m=document.createElement('div');m.className='modal on';m.id='prm';
+            const u=D.cu;
+            m.innerHTML='<div class="mbox"><h2>Профиль <button onclick="cm(\'prm\')">✕</button></h2><div class="avatar-upload" onclick="document.getElementById(\'avInput\').click()">'+(u.avatar?'<img src="'+u.avatar+'">':u.name[0].toUpperCase())+'<input type="file" id="avInput" accept="image/*" onchange="upAv(event)"></div><p style="text-align:center;color:var(--a);font-size:12px;margin-bottom:16px">Нажмите на аватар, чтобы изменить</p><div class="fg"><label>Имя</label><input value="'+u.name+'" readonly></div><div class="fg"><label>Username</label><input value="@'+u.username+'" readonly></div><div class="fg"><label>Email</label><input value="'+u.email+'" readonly></div><div class="fg"><label>Телефон</label><input value="'+(u.phone||'Не указан')+'" readonly></div><div class="fg"><label>О себе</label><input value="'+(u.bio||'')+'" readonly></div><button class="btn btn-o" onclick="cm(\'prm\');showSettings()">⚙️ Редактировать профиль</button></div>';
+            document.body.appendChild(m);m.onclick=e=>{if(e.target===m)cm('prm')};
+        }
+
+        function upAv(e){
+            const file=e.target.files[0];
+            if(!file)return;
+            const reader=new FileReader();
+            reader.onload=function(ev){
+                D.cu.avatar=ev.target.result;
+                save();
+                document.getElementById('prm').querySelector('.avatar-upload').innerHTML='<img src="'+ev.target.result+'"><input type="file" id="avInput" accept="image/*" onchange="upAv(event)">';
+                const ubAv=document.getElementById('ubAv');if(ubAv)ubAv.innerHTML=getAv(D.cu,'34px');
+                uc();
+            };
+            reader.readAsDataURL(file);
+        }
+
+        // НАСТРОЙКИ
+        function showSettings(){
+            const m=document.createElement('div');m.className='modal on';m.id='stm';
+            const u=D.cu;
+            m.innerHTML='<div class="mbox"><h2>⚙️ Настройки <button onclick="cm(\'stm\')">✕</button></h2><div class="settings-item" onclick="cm(\'stm\');editProfile()"><div class="si-left"><div class="si-icon">👤</div><div><div class="si-text">Редактировать профиль</div><div class="si-sub">Имя, фото, описание</div></div></div><div class="si-arrow">›</div></div><div class="settings-item" onclick="cm(\'stm\');changePhone()"><div class="si-left"><div class="si-icon">📱</div><div><div class="si-text">Номер телефона</div><div class="si-sub">'+(u.phone||'Не указан')+'</div></div></div><div class="si-arrow">›</div></div><div class="settings-item" onclick="cm(\'stm\');changePassword()"><div class="si-left"><div class="si-icon">🔒</div><div><div class="si-text">Сменить пароль</div><div class="si-sub">Безопасность аккаунта</div></div></div><div class="si-arrow">›</div></div><div class="settings-item" onclick="cm(\'stm\');changeEmail()"><div class="si-left"><div class="si-icon">📧</div><div><div class="si-text">Email</div><div class="si-sub">'+(u.email)+'</div></div></div><div class="si-arrow">›</div></div><div class="settings-item" onclick="cm(\'stm\');toggleTheme()"><div class="si-left"><div class="si-icon">🎨</div><div><div class="si-text">Тема оформления</div><div class="si-sub">'+(u.theme==='dark'?'Тёмная':'Светлая')+'</div></div></div><div class="si-arrow">›</div></div><div class="settings-item" onclick="cm(\'stm\');deleteAccount()"><div class="si-left"><div class="si-icon" style="color:var(--r)">⚠️</div><div style="color:var(--r)"><div class="si-text" style="color:var(--r)">Удалить аккаунт</div><div class="si-sub">Необратимое действие</div></div></div><div class="si-arrow" style="color:var(--r)">›</div></div></div>';
+            document.body.appendChild(m);m.onclick=e=>{if(e.target===m)cm('stm')};
+        }
+
+        function editProfile(){
+            const m=document.createElement('div');m.className='modal on';m.id='epm';
+            const u=D.cu;
+            m.innerHTML='<div class="mbox"><h2>Редактировать профиль <button onclick="cm(\'epm\')">✕</button></h2><div class="avatar-upload" onclick="document.getElementById(\'epAv\').click()">'+(u.avatar?'<img src="'+u.avatar+'">':u.name[0].toUpperCase())+'<input type="file" id="epAv" accept="image/*" onchange="upEpAv(event)"></div><div class="fg"><label>Имя</label><input id="epName" value="'+u.name+'"></div><div class="fg"><label>О себе</label><input id="epBio" value="'+(u.bio||'')+'" placeholder="Расскажите о себе"></div><div class="err" id="eperr"></div><button class="btn btn-a" onclick="saveProfile()">Сохранить</button></div>';
+            document.body.appendChild(m);m.onclick=e=>{if(e.target===m)cm('epm')};
+        }
+
+        function upEpAv(e){
+            const file=e.target.files[0];if(!file)return;
+            const reader=new FileReader();
+            reader.onload=function(ev){
+                const el=document.getElementById('epm').querySelector('.avatar-upload');
+                el.innerHTML='<img src="'+ev.target.result+'"><input type="file" id="epAv" accept="image/*" onchange="upEpAv(event)">';
+            };
+            reader.readAsDataURL(file);
+        }
+
+        function saveProfile(){
+            const n=document.getElementById('epName').value.trim();
+            const b=document.getElementById('epBio').value.trim();
+            if(!n){document.getElementById('eperr').textContent='Имя не может быть пустым';document.getElementById('eperr').style.display='block';return}
+            D.cu.name=n;D.cu.bio=b;
+            const epAv=document.getElementById('epAv');if(epAv&&epAv.files[0]){
+                const reader=new FileReader();
+                reader.onload=function(ev){D.cu.avatar=ev.target.result;save();cm('epm');render();};
+                reader.readAsDataURL(epAv.files[0]);
+            }else{save();cm('epm');render();}
+        }
+
+        function changePhone(){
+            const m=document.createElement('div');m.className='modal on';m.id='phm';
+            m.innerHTML='<div class="mbox"><h2>Номер телефона <button onclick="cm(\'phm\')">✕</button></h2><div class="fg"><label>Новый номер</label><input id="phNum" value="'+(D.cu.phone||'')+'" placeholder="+79001234567"></div><div class="err" id="pherr"></div><button class="btn btn-a" onclick="savePhone()">Сохранить</button></div>';
+            document.body.appendChild(m);m.onclick=e=>{if(e.target===m)cm('phm')};
+        }
+        function savePhone(){const p=document.getElementById('phNum').value.trim();D.cu.phone=p;save();cm('phm');render()}
+
+        function changeEmail(){
+            const m=document.createElement('div');m.className='modal on';m.id='emm';
+            m.innerHTML='<div class="mbox"><h2>Email <button onclick="cm(\'emm\
